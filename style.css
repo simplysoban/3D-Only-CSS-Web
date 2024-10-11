@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image:url(assets/bg.jpg);
+}
+
+.main > h1{
+    font-family: 'Karantina', system-ui ; 
+    color: rgba(0, 0, 0, 0.795);
+    position: absolute; 
+    font-size: 13rem; 
+    font-weight: 400; 
+    z-index: 1; 
+    left: 50px;
+    pointer-events: none;
+    -webkit-text-stroke: 1px rgb(186, 186, 185);
+}
+
+.main > img{
+    position: absolute;
+    width: 25%;
+    z-index: 2;
+    top: 200px;
+    left: 40px;
+    opacity: 0.7;
+}
+
+.author{
+    height: 22vh;
+    width: 16vw;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    z-index: 4;
+    font-family: 'ICA Rubrik', sans serif;
+    font-weight: 200;
+    color: rgba(0, 0, 0, 0.724);
+}
+
+.author > h1{
+    word-spacing: 5px;
+}
+
+
+.author > img{
+    width: 13vw;
+}
+
+.main{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+body::after{
+    content: "";
+    background-image:  url(assets/ceramics-mosaic-tiles-series-seamless-texture-background_773315-3532.jpg);
+    background-size: 10000%;
+    background-repeat: repeat;
+    background-position: center;
+    position: absolute;
+    inset: 0 0 0 0 ;
+    opacity: 0.5;
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    height: 32vw;
+    width: 16vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(0px);
+    bottom: 100px;
+    --left: 0px;
+    display: flex;
+    transition: 0.7;
+    z-index: 2;
+}
+
+.container .soda{
+    background: var(--url)var(--left) 0px, url(assets/mockup.png);
+    background-size: auto 100%;
+    width: 16vw;
+    aspect-ratio: 2/4;
+    background-blend-mode: multiply;
+    mask-image: url(assets/mockup.png);
+    mask-size: auto 100%;
+    transition: 0.7s;
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.container:hover .soda{
+    --left: -450px;
+    transform: translateX(-50%) translateY(-80px);
+}
+
+
+.rock{
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: 1;
+}
+
+.rock img{
+    position: absolute;
+    transition: 0.7s;
+}
+
+.rock img:nth-child(1){
+    height: 10vw;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.main:has(.container:hover) .rock img:nth-child(1){
+    transform: translateX(-50%) translateY(60px);
+}
+
+.rock img:nth-child(2){
+    height: 50vw;
+    bottom: -200px;
+    left: -60px;    
+}
+
+.main:has(.container:hover) .rock img:nth-child(2){
+    transform: translateX(-20%) translateY(110px);
+}
+
+.rock img:nth-child(3){
+    height: 65vw;
+    bottom: -200px;
+    right: 140px;
+    rotate: -25deg;
+}
+
+.main:has(.container:hover) .rock img:nth-child(3){
+    transform: translateX(30%) translateY(150px);
+}
+
+.container .soda:nth-child(2){
+    opacity: 0;
+}
+.container:hover .soda:nth-child(2){
+    opacity: 1;
+}
